@@ -15,5 +15,5 @@ public interface WebServiceI {
 	String sayHello(String name);
 
 	@WebMethod
-	String save(String name, String pwd);
+	String save(String jarPath, String classpath, String methodName, String name, String pwd);
 }

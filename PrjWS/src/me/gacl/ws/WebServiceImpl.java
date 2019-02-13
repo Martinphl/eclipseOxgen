@@ -2,6 +2,8 @@ package me.gacl.ws;
 
 import javax.jws.WebService;
 
+import me.gacl.listener.Loader;
+
 /**
  * @author gacl SEI的具体实现
  */
@@ -16,8 +18,10 @@ public class WebServiceImpl implements WebServiceI {
 	}
 
 	@Override
-	public String save(String name, String pwd) {
+	public String save(String jarPath, String classpath, String methodName, String name, String pwd) {
 		System.out.println("WebService save " + name + "， " + pwd);
-		return "save Success";
+		Object obj = new Loader().loader(jarPath, classpath, methodName, name, pwd);
+		return obj.toString();
 	}
+
 }
